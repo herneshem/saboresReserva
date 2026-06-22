@@ -70,14 +70,16 @@ horasDisponibles: string[] = this.horasCena; // por defecto
   }
 
   confirmarReserva() {
-    this.reservaService.crearReserva(this.form.value)
-      .subscribe({
-        next: () => {
-          this.step = 3;
-        },
-        error: (err: any) => {
-          console.error(err);
-        }
-      });
+     console.log("CLICK OK");
+     console.log("DATA:", this.form.value);
+
+   this.reservaService.crearReserva(this.form.value)
+  .subscribe({
+    next: res => console.log("NEXT:", res),
+    error: err => console.log("ERROR:", err),
+    complete: () => console.log("COMPLETE")
+   
+  });
+   this.step = 3;
   }
 }

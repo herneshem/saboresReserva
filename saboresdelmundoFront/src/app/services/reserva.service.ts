@@ -10,8 +10,9 @@ export class ReservaService {
   constructor(private http: HttpClient) { }
 
    
- crearReserva(data: any) {
-  return this.http.post('/api/reservas', data);
+crearReserva(data: any) {
+  console.log("🔥 SERVICE HIT");
+  return this.http.post('http://localhost:3000/api/reservas', data);
 }
 
 obtenerDisponibilidad(fecha: string, personas: number, servicio: string) {
@@ -19,4 +20,6 @@ obtenerDisponibilidad(fecha: string, personas: number, servicio: string) {
     params: { fecha, personas, servicio }
   });
 }
+
+
 }
