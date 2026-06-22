@@ -1,0 +1,159 @@
+
+<div class="reserva">
+
+
+<form [formGroup]="form" class="reservation-form">
+
+  <div class="container">
+
+    <!-- PASO 1 -->
+    @if (step === 1) {
+
+      <div class="card">
+
+        <h2>Reserva tu mesa</h2>
+
+        <!-- Fecha -->
+        <div class="form-group">
+          <label>Fecha</label>
+          <input type="date" formControlName="fecha">
+        </div>
+
+        <!-- Personas -->
+        <div class="form-group">
+          <label>Número de personas</label>
+
+          <select formControlName="personas">
+
+            @for (item of [1,2,3,4,5,6,7,8,9,10]; track item) {
+              <option [value]="item">
+                {{ item }} persona(s)
+              </option>
+            }
+
+          </select>
+        </div>
+
+        <!-- Servicio -->
+        <div class="form-group">
+          <label>Servicio</label>
+
+          <div class="service-options">
+
+            <button type="button"
+              class="service-btn"
+              [class.active]="form.value.servicio === 'comida'"
+              (click)="seleccionarServicio('comida')">
+
+              🍽️ Comida
+            </button>
+
+            <button type="button"
+              class="service-btn"
+              [class.active]="form.value.servicio === 'cena'"
+              (click)="seleccionarServicio('cena')">
+
+              🌙 Cena
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Horarios -->
+        <div class="form-group">
+
+          <label>Horario disponible</label>
+
+          <div class="hours-grid">
+
+            @for (hora of horasDisponibles; track hora) {
+
+              <button type="button"
+                class="hour-btn"
+                [class.selected]="form.value.hora === hora"
+                (click)="seleccionarHora(hora)">
+
+                {{ hora }}
+              </button>
+
+            }
+
+          </div>
+
+        </div>
+
+        <div class="actions">
+          <button type="button"
+            class="btn-primary"
+            (click)="siguientePaso()">
+
+            Siguiente →
+          </button>
+        </div>
+
+      </div>
+    }
+
+    <!-- PASO 2 -->
+    @if (step === 2) {
+
+      <div class="card">
+
+        <h2>Tus datos</h2>
+
+        <input type="text" placeholder="Nombre" formControlName="nombre">
+        <input type="text" placeholder="Apellidos" formControlName="apellidos">
+        <input type="tel" placeholder="Teléfono" formControlName="telefono">
+        <input type="email" placeholder="Email" formControlName="email">
+
+        <textarea rows="4"
+          placeholder="Observaciones"
+          formControlName="observaciones">
+        </textarea>
+
+        <div class="actions">
+
+          <button type="button"
+            class="btn-secondary"
+            (click)="step = 1">
+
+            ← Volver
+          </button>
+
+          <button type="button"
+            class="btn-primary"
+            (click)="confirmarReserva()">
+
+            Confirmar reserva
+          </button>
+
+        </div>
+
+      </div>
+
+    }
+
+    <!-- PASO 3 -->
+    @if (step === 3) {
+
+      <div class="card success">
+
+        <h2>✅ Reserva realizada</h2>
+
+        <p>Hemos recibido tu reserva correctamente.</p>
+
+        <ul>
+          <li><strong>Fecha:</strong> {{ form.value.fecha }}</li>
+          <li><strong>Hora:</strong> {{ form.value.hora }}</li>
+          <li><strong>Personas:</strong> {{ form.value.personas }}</li>
+        </ul>
+
+      </div>
+
+    }
+
+  </div>
+
+</form>
+
+</div>

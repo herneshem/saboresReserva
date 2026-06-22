@@ -1,0 +1,10 @@
+<nav class="site-nav">
+    <div> <a  routerLink="/home" routerLinkActive="active"><img src="/assets/images/logo.png" alt=""></a></div>
+  <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+  <a routerLink="/menu" routerLinkActive="active">Menú</a>
+  <a routerLink="/about" routerLinkActive="active">Sobre Nosotros</a>
+  <a routerLink="/reservas" routerLinkActive="active">Reservas</a>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>
