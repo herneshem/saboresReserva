@@ -1,0 +1,6 @@
+CREDENCIALES DE DEMOSTRACIÓN - SABORES DEL MUNDO
+
+Usuario: admin
+Contraseña: adminSabores
+
+Uso exclusivo para pruebas y presentaciones. No reutilizar en producción.
