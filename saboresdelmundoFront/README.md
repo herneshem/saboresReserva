@@ -1,59 +1,63 @@
-# SaboresdelmundoFront
+# Sabores del Mundo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.18.
+Aplicacion web para consultar el restaurante, explorar su menu y realizar reservas. Incluye una zona de administracion para gestionar reservas.
 
-## Development server
+## Tecnologias
 
-To start a local development server, run:
+### Frontend
 
-```bash
-ng serve
-```
+- Angular 19 y TypeScript 5.
+- HTML y CSS para la interfaz.
+- Angular Router para la navegacion.
+- Formularios de Angular (reactivos y basados en `FormsModule`).
+- `HttpClient` y RxJS para comunicarse con la API.
+- Karma y Jasmine para las pruebas unitarias.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Backend
 
-## Code scaffolding
+El backend se encuentra en la carpeta `../saboresdelmundoBack` y utiliza:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js con Express 5 para la API REST.
+- PostgreSQL y el paquete `pg` para el acceso a datos.
+- `jsonwebtoken` para tokens de autenticacion.
+- `bcryptjs` para el manejo de contrasenas.
+- `dotenv` para la configuracion mediante variables de entorno.
+- `cors` para permitir solicitudes desde el frontend.
 
-```bash
-ng generate component component-name
-```
+## Funcionalidades
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Paginas de inicio, menu y acerca del restaurante.
+- Formulario para solicitar una reserva.
+- Inicio de sesion de administracion.
+- Acceso a la pagina de reservas de administracion protegido por un guard de Angular.
 
-```bash
-ng generate --help
-```
+## Requisitos
 
-## Building
+- Node.js y npm.
+- El backend y PostgreSQL configurados y en ejecucion para que funcionen el inicio de sesion y las reservas.
 
-To build the project run:
+El frontend envia solicitudes a `http://localhost:3000/api/auth/login` para iniciar sesion y a `http://localhost:3000/api/reservas` para crear reservas.
 
-```bash
-ng build
-```
+## Instalacion y ejecucion del frontend
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Desde esta carpeta:
 
 ```bash
-ng e2e
+npm install
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Abre `http://localhost:4200` en el navegador. El backend debe estar disponible en `http://localhost:3000` para las funciones que dependen de la API.
 
-## Additional Resources
+## Compilacion y pruebas
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run build
+npm test
+```
+
+## Credenciales de demostracion
+
+Las credenciales de muestra se encuentran en [`CREDENCIALES_DEMO.txt`](./CREDENCIALES_DEMO.txt). El backend debe tener configurado ese usuario y esa contrasena para que el inicio de sesion funcione.
+
+**Aviso:** estas credenciales son solo para demostraciones locales. No las uses en produccion ni en un servicio accesible publicamente. El archivo de texto contiene la contrasena en texto plano; evita publicarlo o subirlo a repositorios compartidos.

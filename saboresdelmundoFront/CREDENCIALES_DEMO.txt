@@ -1,0 +1,7 @@
+CREDENCIALES DE DEMOSTRACION
+
+Usuario: admin
+Contrasena: adminSabores
+
+Solo para pruebas. El backend debe tener configuradas estas credenciales.
+No usar en produccion ni publicar en repositorios compartidos.

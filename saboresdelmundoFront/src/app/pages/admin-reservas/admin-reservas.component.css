@@ -1,0 +1,231 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f3f6fb;
+  color: #1b2d4d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.admin-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Encabezado */
+
+.admin-container h1 {
+  margin: 0 0 10px;
+  color: #172b4d;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+.admin-container p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.admin-container > p:first-of-type {
+  margin-bottom: 24px;
+}
+
+/* Botones generales */
+
+button {
+  border: none;
+  border-radius: 9px;
+  padding: 11px 17px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #e8edf5;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Cerrar sesión */
+
+.admin-container > button:first-of-type {
+  float: right;
+  background: #e8eef8;
+  color: #29456f;
+}
+
+.admin-container > button:first-of-type:hover {
+  background: #d8e3f4;
+}
+
+/* Actualizar reservas */
+
+.admin-container > button:nth-of-type(2) {
+  margin: 0 0 24px;
+  background: #2167e8;
+  color: white;
+  box-shadow: 0 4px 12px rgba(33, 103, 232, 0.18);
+}
+
+.admin-container > button:nth-of-type(2):hover {
+  background: #1754c7;
+}
+
+/* Mensajes */
+
+.mensaje-error {
+  padding: 13px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fff1f2;
+  color: #b91c1c !important;
+}
+
+.admin-container p[ng-reflect-ng-if] {
+  margin-top: 16px;
+}
+
+/* Contenedor de la tabla */
+
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #dfe7f2;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 8px 30px rgba(27, 45, 77, 0.06);
+}
+
+/* Tabla */
+
+table {
+  width: 100%;
+  min-width: 1150px;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 13px;
+}
+
+thead {
+  background: #edf2f9;
+}
+
+th {
+  padding: 17px 14px;
+  color: #435779;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  border-bottom: 1px solid #dfe7f2;
+}
+
+td {
+  padding: 16px 14px;
+  color: #304563;
+  border-bottom: 1px solid #e8edf5;
+  vertical-align: middle;
+}
+
+tbody tr {
+  background: white;
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: #f7faff;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Etiquetas de estado */
+
+.estado {
+  display: inline-block;
+  padding: 7px 11px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.estado-pendiente {
+  background: #fff4d6;
+  color: #946200;
+  border: 1px solid #ffe5a0;
+}
+
+.estado-confirmada {
+  background: #dcf7e7;
+  color: #167345;
+  border: 1px solid #b9edcf;
+}
+
+.estado-rechazada {
+  background: #ffe4e6;
+  color: #b42335;
+  border: 1px solid #fecdd3;
+}
+
+/* Acciones */
+
+td button {
+  margin: 3px;
+  padding: 9px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+td button:first-child {
+  background: #07864b;
+  color: white;
+}
+
+td button:first-child:hover:not(:disabled) {
+  background: #066c3c;
+}
+
+td button:last-child {
+  background: #e9364f;
+  color: white;
+}
+
+td button:last-child:hover:not(:disabled) {
+  background: #c9233b;
+}
+
+/* Adaptación a móviles */
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 20px 12px;
+  }
+
+  .admin-container h1 {
+    font-size: 25px;
+  }
+
+  .admin-container > button:first-of-type {
+    float: none;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .admin-container > button:nth-of-type(2) {
+    width: 100%;
+  }
+
+  .tabla-contenedor {
+    border-radius: 10px;
+  }
+}

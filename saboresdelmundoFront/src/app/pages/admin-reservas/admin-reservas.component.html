@@ -1,0 +1,75 @@
+<div class="admin-container">
+    <h1>Administración de reservas</h1>
+    <button type="button" (click)="cerrarSesion()">
+        Cerrar sesión
+    </button>
+    <p>Consulta las reservas recibidas en el restaurante.</p>
+
+    <button type="button" (click)="cargarReservas()">
+        Actualizar reservas
+    </button>
+
+    <p *ngIf="cargando">Cargando reservas...</p>
+    <p *ngIf="error" class="mensaje-error">{{ error }}</p>
+
+    <p *ngIf="!cargando && !error && reservas.length === 0">
+        No hay reservas registradas.
+    </p>
+
+    <div class="tabla-contenedor" *ngIf="reservas.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Nombre</th>
+                    <th>Personas</th>
+                    <th>Servicio</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+
+                        <tbody>
+                <tr *ngFor="let reserva of reservas">
+                    <td>{{ reserva.fecha | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ reserva.hora }}</td>
+                    <td>{{ reserva.nombre }} {{ reserva.apellidos }}</td>
+                    <td>{{ reserva.personas }}</td>
+                    <td>{{ reserva.servicio }}</td>
+                    <td>{{ reserva.telefono }}</td>
+                    <td>{{ reserva.email }}</td>
+
+                    <td>
+                        <span
+                            class="estado"
+                            [ngClass]="'estado-' + reserva.estado">
+                            {{ reserva.estado | titlecase }}
+                        </span>
+                    </td>
+
+                    <td>
+                        <button
+                            type="button"
+                            (click)="cambiarEstado(reserva.id, 'confirmada')"
+                            [disabled]="reserva.estado === 'confirmada'">
+                            Confirmar
+                        </button>
+
+                        <button
+                            type="button"
+                            (click)="cambiarEstado(reserva.id, 'rechazada')"
+                            [disabled]="reserva.estado === 'rechazada'">
+                            Rechazar
+                        </button>
+                    </td>
+
+                    <td>{{ reserva.observaciones || '—' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
