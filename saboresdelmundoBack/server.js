@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 
 const express = require('express');
@@ -14,6 +15,8 @@ app.use(express.json());
 app.use('/api/reservas', reservaRoutes);
 app.use('/api/auth', authRoutes);
 
-app.listen(3000, () => {
-  console.log('Servidor iniciado en puerto 3000');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor iniciado en puerto ${PORT}`);
 });
