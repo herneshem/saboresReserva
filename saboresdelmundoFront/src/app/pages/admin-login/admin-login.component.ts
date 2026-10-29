@@ -26,7 +26,7 @@ export class AdminLoginComponent {
     this.cargando = true;
 
     this.http.post<{ token: string }>(
-      'http://localhost:3000/api/auth/login',
+      'https://sabores-reserva-backend.onrender.com/api/auth/login',
       {
         usuario: this.usuario,
         password: this.password

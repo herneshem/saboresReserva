@@ -50,7 +50,7 @@ export class AdminReservasComponent implements OnInit {
     });
 
     this.http.get<Reserva[]>(
-      'http://localhost:3000/api/reservas',
+      'https://sabores-reserva-backend.onrender.com/api/reservas',
       { headers }
     ).subscribe({
       next: (datos) => {
@@ -85,7 +85,7 @@ export class AdminReservasComponent implements OnInit {
     });
 
     this.http.patch<Reserva>(
-      `http://localhost:3000/api/reservas/${id}/estado`,
+      `https://sabores-reserva-backend.onrender.com/api/reservas/${id}/estado`,
       { estado },
       { headers }
     ).subscribe({
