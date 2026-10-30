@@ -5,6 +5,7 @@
     <p>Administración de reservas</p>
 
     <label for="usuario">Usuario</label>
+      <!-- placeholder="adminSabores" PARA PRUEBA -->
     <input
       id="usuario"
       type="text"
@@ -12,9 +13,11 @@
       [(ngModel)]="usuario"
       required
       autocomplete="username"
+      placeholder="admin"
     />
 
     <label for="password">Contraseña</label>
+      <!-- placeholder="adminSabores" PARA PRUEBA -->
     <input
       id="password"
       type="password"
@@ -22,6 +25,7 @@
       [(ngModel)]="password"
       required
       autocomplete="current-password"
+      placeholder="adminSabores" 
     />
 
     <button type="submit">Iniciar sesión</button>
